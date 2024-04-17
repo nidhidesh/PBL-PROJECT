@@ -1,0 +1,90 @@
+/* profile.css */
+body {
+    font-family: 'Aboreto', system-ui;
+    background-color: #C7B7CD; /* Light purple color, matching the main site theme */
+    color: #333; /* Dark text for better readability */
+    padding: 20px;
+}
+
+h2 {
+    font-size: xx-large;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: "Satisfy", cursive;
+    font-weight: 400;
+    font-style: normal;
+  
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+button {
+    background-color: #5C2E91; /* Darker purple for button background */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #432C5B; /* Lighten the button background on hover */
+}
+.form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: white;
+}
+
+/* Handle layout on smaller screens */
+@media (max-width: 768px) {
+    form {
+        width: calc(100% - 40px);
+    }
+}
+
+   
+  

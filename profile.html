@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap">
+    <title>Profile</title>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBRKC8f5KRDE4qwTKENJM-UCf0Qn2aJ4RU",
+            authDomain: "fashion-recommender-d622e.firebaseapp.com",
+            databaseURL: "https://fashion-recommender-d622e-default-rtdb.firebaseio.com/",
+            projectId: "fashion-recommender-d622e",
+            storageBucket: "fashion-recommender-d622e.appspot.com",
+            messagingSenderId: "976090082815",
+            appId: "1:976090082815:web:bc6ead2850718b77db0bca",
+            measurementId: "G-S7NDC5805Y"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+
+<body>
+    <h2>Create Profile</h2>
+    <div class="form-container">
+    <form id="profileForm">
+
+    <div>
+        <label for="name">Name :</label>
+        <input type="text" id="name">
+    </div>
+    <div>
+        <label for="age">Age :</label>
+        <input type="number" id="age">
+    </div>
+    <div>
+        <label>Gender:</label>
+        Male <input type="radio" name="sex" value="male" id="male">
+        Female <input type="radio" name="sex" value="female" id="female">
+        Other <input type="radio" name="sex" value="other" id="other">
+    </div>
+    
+    <div>
+        <label for="mail">E-mail id :</label>
+        <input type="email" id="mail"> 
+    </div>
+    <div>
+        <label for="pass">Password :</label>
+        <input type="password" id="pass"> 
+    </div>
+    <div>
+        <label for="prof">Profession :</label>
+        <input type="text" id="prof"> 
+    </div>
+    <div>
+        <label for="col">Favourite colour palette :</label>
+        Bright<input type="checkbox" name="colorPalette" value="Bright" id="bright">
+        Pastel<input type="checkbox" name="colorPalette" value="Pastel" id="pastel">
+        Neutrals<input type="checkbox" name="colorPalette" value="Neutrals" id="neutrals">
+    </div>
+    <div>
+        <label for="style">Preffered Style :</label>
+        Work-wear<input type="checkbox" name="Prefstyle" value=" Work-wear" id="work">
+        Casual<input type="checkbox" name="Prefstyle" value="Casual" id="casual">
+        Dressy<input type="checkbox" name="Prefstyle" value="Dressy" id="dressy">
+    </div>
+    <div>
+        <label for="event">Commonly attended events :</label>
+        Business<input type="checkbox" name="event" value=" Business" id="business">
+        Casual outings<input type="checkbox" name="event" value="Casual outings" id="outings">
+        Parties<input type="checkbox" name="event" value="Parties" id="party">
+    </div>
+    <div>
+        <label for="fit">Fit preference :</label>
+        Tailored<input type="checkbox" name="fit" value=" Tailored" id="tailored">
+        Oversized<input type="checkbox" name="fit" value="Oversized" id="over">
+        Loose<input type="checkbox" name="fit" value="Loose" id="loose">
+    </div>
+</form>
+<button type="button" id="submit">Create Profile</button>
+</div>
+<script>
+    document.getElementById('submit').addEventListener('click', function() {
+        var selectedColors = document.querySelectorAll('input[name="colorPalette"]:checked');
+        var colorValues = Array.from(selectedColors).map(function(checkbox) {
+            return checkbox.value;
+        });
+
+        var selectedStyle = document.querySelectorAll('input[name="Prefstyle"]:checked');
+        var styleValues = Array.from(selectedStyle).map(function(checkbox) {
+            return checkbox.value;
+        });
+
+        var selectedEvent = document.querySelectorAll('input[name="event"]:checked');
+        var eventValues = Array.from(selectedEvent).map(function(checkbox) {
+            return checkbox.value;
+        });
+
+        var selectedFit = document.querySelectorAll('input[name="fit"]:checked');
+        var fitValues = Array.from(selectedFit).map(function(checkbox) {
+            return checkbox.value;
+        });
+
+        var name = document.getElementById('name').value;
+        var age = document.getElementById('age').value;
+        var selectGender = document.querySelector('input[name="sex"]:checked').value;
+        var email = document.getElementById('mail').value;
+        var password = document.getElementById('pass').value;
+        var profession = document.getElementById('prof').value;
+
+        // Save the data to Firebase
+        firebase.database().ref('profiles').push({
+            name: name,
+            age: age,
+            gender: selectGender,
+            email: email,
+            password: password,
+            profession: profession,
+            colorPalette: colorValues,
+            preferredStyle: styleValues,
+            commonlyAttendedEvents: eventValues,
+            fitPreference: fitValues
+        }).then(function() {
+            alert('Profile created successfully!');
+        }).catch(function(error) {
+            alert('Failed to create profile: ' + error.message);
+        });
+    });
+</script>
+</body>
+
+</html>

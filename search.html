@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search an Outfit</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aboreto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="search.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script>
+        // Immediately Invoked Function Expression (IIFE) to initialize Firebase
+        (function() {
+            var firebaseConfig = {
+                apiKey: "AIzaSyBRKC8f5KRDE4qwTKENJM-UCf0Qn2aJ4RU",
+                authDomain: "fashion-recommender-d622e.firebaseapp.com",
+                databaseURL: "https://fashion-recommender-d622e-default-rtdb.firebaseio.com/",
+                projectId: "fashion-recommender-d622e",
+                storageBucket: "fashion-recommender-d622e.appspot.com",
+                messagingSenderId: "976090082815",
+                appId: "1:976090082815:web:bc6ead2850718b77db0bca",
+                measurementId: "G-S7NDC5805Y"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Search an outfit</h1>
+        <p>Provide a brief description of the event</p>
+        <form id="eventForm">
+            <div class="form-group">
+                <label>Type of event: </label>
+                <label class="checkbox-label"><input type="checkbox" name="eventType" value="Formal"> Formal</label>
+                <label class="checkbox-label"><input type="checkbox" name="eventType" value="Informal"> Informal</label>
+                <label class="checkbox-label"><input type="checkbox" name="eventType" value="Private"> Private</label>
+            </div>
+            <div class="form-group">
+                <label>Time of event: </label>
+                <label class="checkbox-label"><input type="checkbox" name="eventTime" value="Daytime"> Daytime</label>
+                <label class="checkbox-label"><input type="checkbox" name="eventTime" value="Evening"> Evening</label>
+            </div>
+            <button type="submit" id="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('eventForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    
+ // Prevent the default form submission
+            
+            var selectedEvent = document.querySelectorAll('input[name="eventType"]:checked');
+            var eventValues = Array.from(selectedEvent).map(function(checkbox) {
+                return checkbox.value;
+            });
+            var selectedTime = document.querySelectorAll('input[name="eventTime"]:checked');
+            var timeValues = Array.from(selectedTime).map(function(checkbox) {
+                return checkbox.value;
+            });
+            
+            firebase.database().ref('Event').push({
+                type: eventValues,
+                time: timeValues
+            }).then(function() {
+                alert('Submitted successfully!');
+            }).catch(function(error) {
+                alert('Failed to submit: ' + error.message);
+            });
+        });
+    </script>
+</body>
+</html>
