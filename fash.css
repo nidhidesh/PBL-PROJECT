@@ -1,0 +1,363 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Aboreto', system-ui;
+}
+
+/* Background image header */
+.hero {
+    background-image: url("https://i.ibb.co/zsTRptW/Pinterest-blxxminggg.jpg");
+    background-size: 50%;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+ 
+}
+
+.hero-content h1 {
+    color: white;
+    font-size: 5rem;
+    background-color: rgba(0, 0, 0, 0); 
+  transition: transform 0.3s ease-in-out;
+  /* Dark background to make text stand out */
+    padding: 1rem;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+}
+/* Adding onto the existing styles */
+
+/* Split layout styles */
+.split-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.left-pane, .right-pane {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.left-pane {
+  background-color: #C7B7CD; /* Light purple color */
+  color: white; /* Dark purple color */
+  font-size: 2.5rem;
+  text-align: left;
+}
+
+.right-pane {
+  background-color: #C7B7CD; /* Slightly darker purple color */
+  color: white;
+  font-size: 2rem;
+  text-align: right;
+}
+
+/* Specific styles for the recommendation section */
+.recommendation-section {
+  display: flex;
+  flex-wrap: wrap; /* Ensure content wraps on smaller screens */
+  min-height: 100vh;
+  max-height: 100vh; /* Limit height to the viewport height */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.image-pane {
+  /* ... existing styles ... */
+  background: url("https://i.ibb.co/gPcpk2S/a98c4cc0-b3cb-4067-88e9-41b6e5ddc521.jpg") no-repeat center left; /* Update with the new image URL */
+  background-size: cover;
+}
+/* ... rest of your existing styles ... */
+
+
+.content-pane {
+  flex-basis: 50%; /* Content takes up the remaining half */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align text to the left */
+  padding: 0 4em; /* Adjust padding as needed */
+}
+
+.text-content h2 {
+  font-size: 2em; /* Adjust font size as needed */
+  color: #666; /* Your desired text color */
+  margin-bottom: 0.5em;
+}
+
+.text-content .subtitle {
+  font-size: 1em; /* Adjust subtitle size as needed */
+  color: #333; /* Your desired subtitle color */
+  margin-bottom: 2em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .recommendation-section {
+    flex-direction: column;
+  }
+
+  .image-pane, .content-pane {
+    flex-basis: 100%; /* Each takes the full width on smaller screens */
+  }
+
+  .content-pane {
+    padding: 1em;
+  }
+
+  .text-content h2 {
+    font-size: 1.5em;
+  }
+
+  .text-content .subtitle {
+    font-size: 0.75em;
+  }
+}
+/* Adding onto the existing styles */
+
+/* Split layout styles */
+.split-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.left-pane, .right-pane {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.left-pane {
+  background-color: #C7B7CD; /* Light purple color */
+  color: white; /* Dark purple color */
+  font-size: 2.5rem;
+  text-align: left;
+}
+
+.right-pane {
+  background-color: #C7B7CD; /* Slightly darker purple color */
+  color: white;
+  font-size: 1.5rem;
+  text-align: right;
+}
+
+/* General styles for all recommendation sections */
+.recommendation-section {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-pane {
+  background-size: cover;
+  background-position: center;
+  width: 50%;
+  height: 100vh;
+}
+
+.content-pane {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 4em;
+}
+
+.her.text-content h2 {
+  font-size: 3em;
+  color:#666 ;
+  margin-bottom: 0.5em;
+}
+
+.him.text-content .subtitle {
+  font-size: 2em;
+  color: #666;
+  margin-bottom: 1.5em;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .recommendation-section {
+    flex-direction: column;
+  }
+
+  .image-pane {
+    flex: none;
+    width: 100%;
+    height: 50vh;
+  }
+
+  .content-pane {
+    padding: 1em;
+  }
+}
+
+/* Specific background images for each section */
+.her .image-pane {
+  background: url("https://i.ibb.co/f1vv4pq/3e58d59d-50f0-4ba8-8603-e12cae4ef039.jpg") no-repeat center left;
+  order: 1; 
+}
+
+.him .image-pane {
+  background: url("https://i.ibb.co/gPcpk2S/a98c4cc0-b3cb-4067-88e9-41b6e5ddc521.jpg") no-repeat center left;
+}
+.new-arrivals {
+  text-align: center;
+  margin: 1em 0;
+  background-color: #C7B7CD;
+}
+
+.new-arrivals h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1em;
+  color: white;
+  
+}
+
+.arrivals-grid {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.arrival-item {
+  flex: 1; /* Ensures that each item can grow */
+  margin: 0.5rem;
+  box-sizing: border-box; /* Include padding and borders in the element's total width and height */
+}
+
+.arrival-item img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove extra space beneath the image */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .arrivals-grid {
+    flex-direction: column;
+  }
+
+  .arrival-item {
+    margin: 1rem 0;
+  }
+}/* Navigation Bar Styles */
+.navbar {
+    background: #C7B7CD; /* Or any color that matches your brand */
+    height: 60px; /* Adjust the height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 20px;
+    max-width: 1500px;
+    width: 100%;
+}
+
+.navbar-logo {
+    color: #fff;
+    justify-self: start;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin-right: -10px; /* Optional, adjusts space on the right side */
+}
+
+.nav-item {
+    line-height: 60px;
+    margin-right: 1rem; /* Space between nav items */
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease-out;
+}
+
+.nav-link:hover {
+    background-color: #555; /* Change color on hover */
+    border-radius: 4px;
+    transition: all 0.3s ease-in;
+}
+
+/* Responsive - This part collapses the navbar into a dropdown menu on smaller screens */
+@media screen and (max-width: 960px) {
+    .nav-menu {
+        display: block;
+        position: absolute;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        background: #333;
+        transition: all 0.3s ease;
+    }
+
+    .nav-menu.active {
+        left: 0;
+        opacity: 1;
+        transition: all 0.3s ease;
+        z-index: 1;
+    }
+
+    .nav-item {
+        width: 100%;
+        /* Display the links as block elements */
+    }
+
+    .nav-link {
+        text-align: center;
+        padding: 1rem;
+        width: 100%;
+        display: table;
+    }
+
+    .navbar-toggle {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+}
+
